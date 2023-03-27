@@ -3,6 +3,12 @@ public class Partido {
     Equipo equipo2;
     int golesEquipo1;
     int golesEquipo2;
+
+    
+    public Partido(Equipo equipo1, Equipo equipo2){
+        this.equipo1 = equipo1;
+        this.equipo2 = equipo2;
+    }
     
     public ResultadoEnum resultado(Equipo equipo){
         if(equipo1.equals(equipo)){
@@ -28,9 +34,9 @@ public class Partido {
             }   
         }
         return null;
-
     }
     
 }
+
 
 
