@@ -1,16 +1,20 @@
+import java.util.ArrayList;
 public class Main{
     public static void main(String[] args) {
 
         //Declaraciones de equipos
         Equipo equipo1 = new Equipo();
         equipo1.nombre = "Boca";
+        equipo1.descripcion = "Un equipo de la selección de Boca";
         Equipo equipo2 = new Equipo();
         equipo2.nombre = "River";
+        equipo2.descripcion = "Un equipo de la selección de River";
 
         //Declaración de partido1 y goles
         Partido partido1 = new Partido(equipo1, equipo2);
         partido1.golesEquipo1 = 3;
         partido1.golesEquipo2 = 3;
+
         //Declaración del pronostico1(equipo1) y pronostico2(equipo2)
         Pronostico pronostico1 = new Pronostico(equipo1, partido1.resultado(equipo1), partido1);
         Pronostico pronostico2 = new Pronostico(equipo2, partido1.resultado(equipo2), partido1);
@@ -21,6 +25,10 @@ public class Main{
         partido2.golesEquipo2 = 4;
         Pronostico pronostico3 = new Pronostico(equipo1, partido2.resultado(equipo1), partido2);
         Pronostico pronostico4 = new Pronostico(equipo2, partido2.resultado(equipo2), partido2);
+
+
+
+        ArrayList<Partido> losPartidos = new ArrayList<Partido>();
 
         //Método en el cual se ejecutan los resultados de los equipos
         System.out.println("\n-> 1ER PARTIDO:\n");
@@ -56,5 +64,4 @@ public class Main{
         System.out.println("Puntos de "+equipo1.nombre+": "+puntosEquipo1);
         System.out.println("Puntos de "+equipo2.nombre+": "+puntosEquipo2);
     }
-
 }
