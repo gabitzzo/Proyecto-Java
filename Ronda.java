@@ -1,7 +1,6 @@
 import java.util.ArrayList;
-public class Ronda {
+public abstract class Ronda {
     String num;
     ArrayList<Partido> losPartidos;
     Pronostico pronostico;
-    
 }
