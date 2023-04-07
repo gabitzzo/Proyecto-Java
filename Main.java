@@ -66,80 +66,77 @@ public class Main{
         String descEquipo2 = lineas.get(1).split(",")[2]; // Segunda palabra de la segunda línea seleccionada
 
         // Instanciamos los equipos
-        Equipo equipo1 = new Equipo();
+        Equipo equipo1 = new Equipo(nombreEquipo1, descEquipo1);
         // Le asignamos el nombre que está en info.txt
-        equipo1.nombre = nombreEquipo1;
-        equipo1.descripcion = descEquipo1;
 
-        Equipo equipo2 = new Equipo();
+        Equipo equipo2 = new Equipo(nombreEquipo2, descEquipo2);
         // Le asignamos el nombre que está en info.txt
-        equipo2.nombre = nombreEquipo2;
-        equipo2.descripcion = descEquipo2;
-
-        // Instanciamos los partidos
-        Partido partido1 = new Partido(equipo1, equipo2);
-        partido1.golesEquipo1 = Integer.parseInt(golesEquipo1);
-        partido1.golesEquipo2 = Integer.parseInt(golesEquipo2);
-
-        //Declaración del pronostico1(equipo1) y pronostico2(equipo2)
-        Pronostico pronostico1 = new Pronostico(partido1, equipo1, partido1.resultado(equipo1));
-        Pronostico pronostico2 = new Pronostico(partido1, equipo2, partido1.resultado(equipo2));
-
-        //partido2 y goles(lo mismo que arriba)
-        Partido partido2 = new Partido(equipo1, equipo2);
-        partido2.golesEquipo1 = 3;
-        partido2.golesEquipo2 = 4;
-        Pronostico pronostico3 = new Pronostico(partido2, equipo1, partido2.resultado(equipo1));
-        Pronostico pronostico4 = new Pronostico(partido2, equipo2, partido2.resultado(equipo2));
 
         ArrayList<Partido> losPartidos = new ArrayList<Partido>();
 
+        // Instanciamos los partidos
+        Partido partido1 = new Partido(equipo1, equipo2, Integer.parseInt(golesEquipo1), Integer.parseInt(golesEquipo2));
+        
+
+        Partido partido2 = new Partido(equipo1, equipo2, 3, 4);
+
+        Partido partido = new Partido(equipo1, equipo2, Integer.parseInt(golesEquipo1), Integer.parseInt(golesEquipo2));
+        losPartidos.add(partido);
+        //Declaración del pronostico1(equipo1) y pronostico2(equipo2)
+        Pronostico pronostico1 = new Pronostico(partido1, equipo1, partido1.resultado(equipo1), equipo1, equipo2);
+        Pronostico pronostico2 = new Pronostico(partido1, equipo2, partido1.resultado(equipo2), equipo1, equipo2);
+
+        //partido2 y goles(lo mismo que arriba)
+        
+        Pronostico pronostico3 = new Pronostico(partido2, equipo1, partido2.resultado(equipo1), equipo1, equipo2);
+        Pronostico pronostico4 = new Pronostico(partido2, equipo2, partido2.resultado(equipo2), equipo1, equipo2);
+
         // Presentación
         System.out.println("\n///////////////////////////////////////////////////////////\n");
-        System.out.println("En este gran partido jugarán " + equipo1.nombre + " vs " + equipo2.nombre + "\n");
-        System.out.println("* " + equipo1.nombre + ": " + equipo1.descripcion + "\n");
-        System.out.println("* " + equipo2.nombre + ": " + equipo2.descripcion);
+        System.out.println("En este gran partido jugarán " + equipo1.getNombre() + " vs " + equipo2.getNombre() + "\n");
+        System.out.println("* " + equipo1.getNombre() + ": " + equipo1.getDescripcion() + "\n");
+        System.out.println("* " + equipo2.getNombre() + ": " + equipo2.getDescripcion());
 
         // Resultados previstos
         System.out.println("\n///////////////////////////////////////////////////////////\n");
         System.out.println("-> Resultados previstos\n");
-        System.out.println("* " + equipo1.nombre + ": " + golesPrev1 + "\n");
-        System.out.println("* " + equipo2.nombre + ": " + golesPrev2);
+        System.out.println("* " + equipo1.getNombre() + ": " + golesPrev1 + "\n");
+        System.out.println("* " + equipo2.getNombre() + ": " + golesPrev2);
 
         System.out.println("\n///////////////////////////////////////////////////////////");
         System.out.println("\n-> 1ER PARTIDO:\n");
         // Método en el cual se ejecutan los resultados de los equipos
         if(partido1.resultado(equipo2) == ResultadoEnum.empate){
-            System.out.println(equipo1.nombre + " y " + equipo2.nombre + " empataron " + partido1.golesEquipo1 + "-" + partido1.golesEquipo2);
+            System.out.println(equipo1.getNombre() + " y " + equipo2.getNombre() + " empataron " + partido1.getGolesEquipo1() + "-" + partido1.getGolesEquipo2());
         }
         else{
-            System.out.println("* " + equipo1.nombre + " fue " + partido1.resultado(equipo1) + " con " + partido1.golesEquipo1 + " goles");
-            System.out.println("* " + equipo2.nombre + " fue " + partido1.resultado(equipo2) + " con " + partido1.golesEquipo2 + " goles");
+            System.out.println("* " + equipo1.getNombre() + " fue " + partido1.resultado(equipo1) + " con " + partido1.getGolesEquipo1() + " goles");
+            System.out.println("* " + equipo2.getNombre() + " fue " + partido1.resultado(equipo2) + " con " + partido1.getGolesEquipo2() + " goles");
         }
 
         //Ejecutamos las puntuaciones de cada equipo en la consola
         System.out.println("\n-> PUNTAJE:\n");
-        System.out.println("* Puntos de " + equipo1.nombre + ": " + pronostico1.puntos(golesPrev1, partido1.golesEquipo1));
-        System.out.println("* Puntos de " + equipo2.nombre + ": " + pronostico2.puntos(golesPrev2, partido1.golesEquipo2));
+        System.out.println("* Puntos de " + equipo1.getNombre() + ": " + pronostico1.puntos(equipo1, golesPrev1, partido1.getGolesEquipo1(), golesPrev2, partido1.getGolesEquipo1()));
+        System.out.println("* Puntos de " + equipo2.getNombre() + ": " + pronostico2.puntos(equipo2, golesPrev1, partido1.getGolesEquipo2(), golesPrev2, partido1.getGolesEquipo2()));
         
         //PARTIDO 2
         System.out.println("\n///////////////////////////////////////////////////////////");
         System.out.println("\n-> 2DO PARTIDO:\n");
         if(partido2.resultado(equipo2) == ResultadoEnum.empate){
-            System.out.println(equipo1.nombre + " y " + equipo2.nombre + " empataron " + partido2.golesEquipo1 + "-" + partido2.golesEquipo2);
+            System.out.println(equipo1.getNombre() + " y " + equipo2.getNombre() + " empataron " + partido2.getGolesEquipo1() + "-" + partido2.getGolesEquipo2());
         }
         else{
-            System.out.println("* " + equipo1.nombre + " fue " + partido2.resultado(equipo1) + " con " + partido2.golesEquipo1 + " goles");
-            System.out.println("* " + equipo2.nombre + " fue " + partido2.resultado(equipo2) + " con " + partido2.golesEquipo2 + " goles");
+            System.out.println("* " + equipo1.getNombre() + " fue " + partido2.resultado(equipo1) + " con " + partido2.getGolesEquipo1() + " goles");
+            System.out.println("* " + equipo2.getNombre() + " fue " + partido2.resultado(equipo2) + " con " + partido2.getGolesEquipo2() + " goles");
         }
 
         //Esto es temporal, tenemos que ver un método que lo haga de forma automática :c
-        int puntosEquipo1 = pronostico1.puntos(golesPrev1, partido1.golesEquipo1) + pronostico3.puntos(golesPrev1, partido1.golesEquipo1);
-        int puntosEquipo2 = pronostico2.puntos(golesPrev2, partido1.golesEquipo2) + pronostico4.puntos(golesPrev2, partido1.golesEquipo2);
+        int puntosEquipo1 = pronostico1.puntos(equipo1, golesPrev1, partido1.getGolesEquipo1(), golesPrev2, partido1.getGolesEquipo1()) + pronostico3.puntos(equipo1, golesPrev1, partido1.getGolesEquipo1(), golesPrev2, partido1.getGolesEquipo2());
+        int puntosEquipo2 = pronostico2.puntos(equipo2, golesPrev1, partido1.getGolesEquipo1(), golesPrev2, partido1.getGolesEquipo2()) + pronostico4.puntos(equipo2, golesPrev1, partido1.getGolesEquipo1(), golesPrev2, partido1.getGolesEquipo2());
 
         System.out.println("\n-> PUNTAJE:\n");
-        System.out.println("* Puntos de " + equipo1.nombre + ": " + puntosEquipo1);
-        System.out.println("* Puntos de " + equipo2.nombre + ": " + puntosEquipo2);
+        System.out.println("* Puntos de " + equipo1.getNombre() + ": " + puntosEquipo1);
+        System.out.println("* Puntos de " + equipo2.getNombre() + ": " + puntosEquipo2);
         System.out.println("\n///////////////////////////////////////////////////////////\n");
     }
 }
