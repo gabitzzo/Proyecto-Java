@@ -76,7 +76,6 @@ public class Main{
 
         // Instanciamos los partidos
         Partido partido1 = new Partido(equipo1, equipo2, Integer.parseInt(golesEquipo1), Integer.parseInt(golesEquipo2));
-        
 
         Partido partido2 = new Partido(equipo1, equipo2, 3, 4);
 
@@ -87,7 +86,6 @@ public class Main{
         Pronostico pronostico2 = new Pronostico(partido1, equipo2, partido1.resultado(equipo2), equipo1, equipo2);
 
         //partido2 y goles(lo mismo que arriba)
-        
         Pronostico pronostico3 = new Pronostico(partido2, equipo1, partido2.resultado(equipo1), equipo1, equipo2);
         Pronostico pronostico4 = new Pronostico(partido2, equipo2, partido2.resultado(equipo2), equipo1, equipo2);
 

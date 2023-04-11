@@ -22,10 +22,10 @@ public class Pronostico {
 
 
 	public ResultadoEnum getResultadoConstante() {
-		return this.resultadoConstante;
+		return resultadoConstante;
 	}
 
-    public void setResultadoConstante() {
+    public void setResultadoConstante(ResultadoEnum resultadoConstante) {
 		this.resultadoConstante = resultadoConstante;
 	}
 
