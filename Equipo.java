@@ -1,10 +1,6 @@
 public class Equipo{
     private String nombre;
     private String descripcion;
-	private Participante participante1;
-	private Participante participante2;
-	private Participante participante3;
-	private Participante participante4;
 
     public Equipo(String nombre, String descripcion) {
 		this.nombre = nombre;

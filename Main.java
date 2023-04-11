@@ -49,18 +49,25 @@ public class Main{
         } catch (IOException e) {
             e.printStackTrace();
         }
+        // Participante participante = new Participante();
 
+        
+        // PREVISTO
         // Goles de los equipos
         int golesPrev1 = Integer.parseInt(lineasPrev.get(0).split(",")[1]); // Segunda palabra de la primera línea seleccionada
         int golesPrev2 = Integer.parseInt(lineasPrev.get(1).split(",")[1]); // Segunda palabra de la segunda línea seleccionada
 
-        // DATOS. Seleccionamos la segunda palabra de cada línea
+        // DATOS
         // Nombres de los equipos
-        String nombreEquipo1 = lineas.get(0).split(",")[0]; // Primera palabra de la primera línea seleccionada
-        String nombreEquipo2 = lineas.get(1).split(",")[0]; // Primera palabra de la segunda línea seleccionada
+        String nombreEquipo1 = lineas.get(1).split(",")[0]; // Primera palabra de la primera línea seleccionada
+        String nombreEquipo2 = lineas.get(2).split(",")[0]; // Primera palabra de la segunda línea seleccionada
+        String nombreEquipo3 = lineas.get(3).split(",")[0]; // Primera palabra de la primera línea seleccionada
+        String nombreEquipo4 = lineas.get(4).split(",")[0]; // Primera palabra de la segunda línea seleccionada
         // Goles de los equipos
-        String golesEquipo1 = lineas.get(0).split(",")[1]; // Primera palabra de la primera línea seleccionada
-        String golesEquipo2 = lineas.get(1).split(",")[1]; // Segunda palabra de la segunda línea seleccionada
+        String golesEquipo1 = lineas.get(1).split(",")[1]; // Primera palabra de la primera línea seleccionada
+        String golesEquipo2 = lineas.get(2).split(",")[1]; // Segunda palabra de la segunda línea seleccionada
+        String golesEquipo3 = lineas.get(3).split(",")[1]; // Primera palabra de la primera línea seleccionada
+        String golesEquipo4 = lineas.get(4).split(",")[1]; // Segunda palabra de la segunda línea seleccionada
         // Descripción de los equipos
         String descEquipo1 = lineas.get(0).split(",")[2]; // Primera palabra de la primera línea seleccionada
         String descEquipo2 = lineas.get(1).split(",")[2]; // Segunda palabra de la segunda línea seleccionada

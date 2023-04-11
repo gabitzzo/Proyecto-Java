@@ -1,2 +1,9 @@
-Argentina, 2
-Alemania, 3
+Participante,Equipos 1,Gana 1,Empata,Gana 2,Equipo 2
+Oscar,Argentina,X, , ,Alemania
+Oscar,Argentina, ,X, ,Francia
+Oscar,Francia,X, , ,Alemania
+Oscar,Suiza,X, , ,Francia
+Celeste,Argentina, , ,X,Alemania
+Celeste,Argentina, ,X, ,Francia
+Celeste,Francia,X, , ,Alemania
+Celeste,Suiza,X, , ,Francia
