@@ -1,3 +1,4 @@
+package src.main.utn;
 public class Participante {
     private String nombre;
     private int puntos;
